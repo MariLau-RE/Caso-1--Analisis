@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <bits/stdc++.h>
 //#include <stdio.h>
 //#include <string>
 //#include <cmath>
@@ -7,10 +8,16 @@
 //#include <algorithm>
 using namespace std;
 
+//En los comentarios de cada implementación de cada ejercicio 
+//haga una explicación donde deje claro la diferencia 
+//entre las dos implementaciones que hace a una mejor que la otra.
+
 //Compare The triplets 
 
 
 void Triplets1(int a[], int b[]){
+	
+cout<<"\nTriplets 1"<<endl;
 	
 #define SIZE 3
 
@@ -33,15 +40,19 @@ if (comparador<0){
 	
 	}
 }
-cout << " Resultado: "<<"Ana:"<< resultado[0] << " , "<<"Bob:"<< resultado[1] << endl;
+cout << "\nResultado: "<<"Ana: "<< resultado[0] << " , "<<"Bob: "<< resultado[1] << endl;
 return ;
 
 }
 
 // Time Coversion
 
+//AM PM siempre debe ir en mayuscula
+
 
 string TimeConversion1(string time){
+
+cout<< "\nTime Conversion 1"<<endl;
 
 string minseg=time.substr(3,5);
 int hora= stoi(time.substr(0,2));
@@ -63,6 +74,9 @@ return time;
 //Subarray Division
 
 int Subarray1(int largo,int lista[],int dia, int mes){
+	
+cout<< "\nSubarray Division 1"<<endl;
+
 
 	int acumulador=0;
 	int resultados=0;
@@ -76,7 +90,7 @@ int Subarray1(int largo,int lista[],int dia, int mes){
 		acumulador=0;
 	
 	}
-	cout<<"Resultado:"<<resultados;
+	cout<<"\nResultado: "<<resultados;
 	return resultados;
 
 }
@@ -124,7 +138,83 @@ void Minion(string palabra, int scoreMinion[]){
 
 //Cipher
 
-void Cipher(){
+void Cipher(string code, int shift){
+
+	int codexor=0;
+	string resultado="";
+	std::string decoder[]={"","0","00","000"};
+
+    bool decoder0;
+    bool decoder1;
+    bool decoder2;
+    bool decoder3;
+    bool codebool;
+ 
+ 	for(int i=0; i<(code.length() - (shift-1)); i++){
+	
+	    std::istringstream(decoder[1].substr(i,1)) >> decoder1;
+		std::istringstream(decoder[2].substr(i,1)) >> decoder2;
+		std::istringstream(decoder[3].substr(i,1)) >> decoder3;
+		std::istringstream(code.substr(i,1)) >> codebool;
+	
+		codexor=(((decoder1 ^ decoder2) ^ decoder3) ^codebool);
+		decoder[0]=decoder[0] + to_string(codexor);
+		decoder[1]=decoder[1] + to_string(codexor);
+		decoder[2]=decoder[2] + to_string(codexor);
+		decoder[3]=decoder[3] + to_string(codexor);
+		//cout<<"decoder[0]:"<<decoder[0]<<endl;
+		//cout<<"decoder[1]:"<<decoder[1]<<endl;
+		//cout<<"decoder[2]:"<<decoder[2]<<endl;
+		//cout<<"decoder[3]:"<<decoder[3]<<endl;
+	}
+	
+	resultado = decoder[3].substr((shift -1),(decoder[3].length() - shift+1));
+	cout<<"Decodificado:"<<resultado<<endl;
+	return;
+	
+}
+
+void Cipher1(string code, int shift){
+
+	int codexor=0;
+	string resultado="";
+	std::string decoder[]={}; //={"","0","00","000"};
+	decoder[0]="";
+	cout<<"decoder[0]:"<<decoder[0]<<endl;
+	
+	for(int h=1; h=shift; h++){
+		cout<<"aqui"<<endl;
+		decoder[h]=decoder[(h-1)]+"0";
+	}
+	cout<<"decoder[1]:]"<<decoder[1]<<endl;
+	   
+    bool decoder0;
+    bool decoder1;
+    bool decoder2;
+    bool decoder3;
+    bool codebool;
+ 
+ 	for(int i=0; i<(code.length() - (shift-1)); i++){
+	
+	    std::istringstream(decoder[1].substr(i,1)) >> decoder1;
+		std::istringstream(decoder[2].substr(i,1)) >> decoder2;
+		std::istringstream(decoder[3].substr(i,1)) >> decoder3;
+		std::istringstream(code.substr(i,1)) >> codebool;
+	
+		codexor=(((decoder1 ^ decoder2) ^ decoder3) ^codebool);
+		decoder[0]=decoder[0] + to_string(codexor);
+		decoder[1]=decoder[1] + to_string(codexor);
+		decoder[2]=decoder[2] + to_string(codexor);
+		decoder[3]=decoder[3] + to_string(codexor);
+		//cout<<"decoder[0]:"<<decoder[0]<<endl;
+		//cout<<"decoder[1]:"<<decoder[1]<<endl;
+		//cout<<"decoder[2]:"<<decoder[2]<<endl;
+		//cout<<"decoder[3]:"<<decoder[3]<<endl;
+	}
+	
+	resultado = decoder[3].substr((shift -1),(decoder[3].length() - shift+1));
+	cout<<"Decodificado:"<<resultado<<endl;
+	return;
 	
 }
 
@@ -157,15 +247,30 @@ int Pairs(int largo,int diferencia, int listadif[]){
 int main(){
 	
 
-	//int a[]={20,28,70};
-	//int b[]={50,60,50};
+	//int a[]={5,6,7};
+	//int b[]={3,6,10};
 	//Triplets1(a,b);
-	//cout<<"Hora Militar: "<<TimeConversion1("01:41:15PM")<<endl; 
-	//int lista[]= {2,2,1,3,2};
-  	//Subarray1(5,lista,4,2);
+	//int a1[]={17,28,30};
+	//int b1[]={99,16,8};
+	//Triplets1(a1,b1);
+	
+	//cout<<"\nHora Militar: "<<TimeConversion1("12:41:15AM")<<endl; 
+	//cout<<"\nHora Militar: "<<TimeConversion1("07:05:45PM")<<endl; 
+	
+	//int lista[]= {1,2,1,3,2};
+  	//Subarray1(5,lista,3,2);
+	//int lista2[]= {1,1,1,1,1,1};
+  	//Subarray1(6,lista2,3,2);
+  	
+  	
   	//int scoreMinion[]={0,0};
   	//Minion("POO",scoreMinion);
-  	//Cipher();
+  	
+  	
+  	Cipher("1110100110", 4);
+  	//Cipher("1110101001",4);
+  	//Cipher1("1110001",2);
+  	
   	//int listadif[]={1,5,3,4,2};
   	//Pairs(5,3,listadif);
   	return 0;
