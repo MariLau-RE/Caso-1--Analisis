@@ -2,7 +2,9 @@
 #include <iostream>
 //#include <stdio.h>
 //#include <string>
-//#include <math.h>
+//#include <cmath>
+//#include <vector>
+//#include <algorithm>
 using namespace std;
 
 //Compare The triplets 
@@ -126,6 +128,31 @@ void Cipher(){
 	
 }
 
+//Pairs
+
+int Pairs(int largo,int diferencia, int listadif[]){
+	
+	int contdif=0;
+	
+	for(int i=0; i<largo; i++){
+		for(int j=i+1; j<largo; j++){
+			//cout<<i<<"-"<<j<<"="<<abs(listadif[i]-listadif[j])<<endl;
+			int resultado= abs(listadif[i]-listadif[j]);
+			if (resultado==diferencia){
+				contdif=contdif+1;
+			}
+			
+		}	
+		
+	}
+	cout<<"Resultado: "<<contdif<<endl;
+	return contdif;
+	
+	
+}
+
+
+
 //int argc, char** argv
 int main(){
 	
@@ -139,6 +166,8 @@ int main(){
   	//int scoreMinion[]={0,0};
   	//Minion("POO",scoreMinion);
   	//Cipher();
+  	//int listadif[]={1,5,3,4,2};
+  	//Pairs(5,3,listadif);
   	return 0;
 }
 
