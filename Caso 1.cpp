@@ -44,32 +44,32 @@ return ;
 
 string TimeConversion1(string time){
 
-string minseg=time.substr(2,6);
+string minseg=time.substr(3,5);
 int hora= stoi(time.substr(0,2));
-//string AMPM= time[8];
-if (char& time(int 8) == "A")	{
-	if(hora=12){
+string AMPM= time.substr(8,1);
+
+if (AMPM == "A")	{
+	if(hora==12){
 		hora=0;
 	}
-	else{	
-	hora=hora+12;
 }
+if (AMPM == "P")	{
+	if(hora<12){
+	hora=hora+12;}
 }
-time= to_string(hora)+minseg;
+time=(hora<10)?"0"+to_string(hora)+":"+minseg:to_string(hora)+":"+minseg;
 return time;
-cout<<"Hora Militar"<<time<<endl;
 }
 	
 
 
 
-int main(){
+int main(int argc, char** argv){
 	
 
 
 	//Triplets1();
-	TimeConversion1("12:41:15AM");
-  
+	cout<<"Hora Militar: "<<TimeConversion1("01:41:15PM")<<endl;  
   
   return 0;
 }
