@@ -1,24 +1,18 @@
+
 #include <iostream>
-#include <math.h>
+//#include <stdio.h>
+//#include <string>
+//#include <math.h>
 using namespace std;
 
 //Compare The triplets 
-// Dos Algoritmos 
-//The rating for Alice's challenge is the triplet a = (a[0], a[1], a[2]), and the rating for Bob's challenge is the triplet b = (b[0], b[1], b[2]).
 
-//The task is to find their comparison points by comparing a[0] with b[0], a[1] with b[1], and a[2] with b[2].
 
-//If a[i] > b[i], then Alice is awarded 1 point.
-//If a[i] < b[i], then Bob is awarded 1 point.
-//If a[i] = b[i], then neither person receives a point.
-
-void Triplets1(){
+void Triplets1(int a[], int b[]){
 	
 #define SIZE 3
 
 int resultado[]={0,0};
-int a[]={20,28,70};
-int b[]={50,60,50};
 int comparador;
 int temporal=0;
 
@@ -42,6 +36,9 @@ return ;
 
 }
 
+// Time Coversion
+
+
 string TimeConversion1(string time){
 
 string minseg=time.substr(3,5);
@@ -60,17 +57,88 @@ if (AMPM == "P")	{
 time=(hora<10)?"0"+to_string(hora)+":"+minseg:to_string(hora)+":"+minseg;
 return time;
 }
+
+//Subarray Division
+
+int Subarray1(int largo,int lista[],int dia, int mes){
+
+	int acumulador=0;
+	int resultados=0;
+	for(int i=0; i<largo-mes+1;i++){
+	for(int j=i;j<(i+mes);j++){
+			acumulador=acumulador+lista[j];	
+	}
+		if (acumulador==dia){
+			resultados=resultados+1;
+		}
+		acumulador=0;
+	
+	}
+	cout<<"Resultado:"<<resultados;
+	return resultados;
+
+}
+
+//The Minion Game	
+
+//El String de Palabra solo funciona con mayuscula
+
+void Minion(string palabra, int scoreMinion[]){
+	
+	cout<<palabra.length()<<endl;
+	
+	for(int i=0; i<palabra.length(); i++){
+		if(palabra[i]=='A'||palabra[i]=='E'||palabra[i]=='I'||palabra[i]=='O'||palabra[i]=='U'){
+			for(int j=1; j<palabra.length()-i+1;j++){
+				cout<<"Vocal: "<<palabra.substr(i,palabra.length()-j-i+1)<<endl;
+				scoreMinion[0]=scoreMinion[0]+1;
+			}
+		
+		}
+		else{
+			for(int j=1; j<palabra.length()-i+1;j++){	
+				cout<<"Consonante: "<<palabra.substr(i,palabra.length()-j-i+1)<<endl;
+				scoreMinion[1]=scoreMinion[1]+1;
+			}
+		}
+	}
+	cout<<"Puntaje Vocales: "<<scoreMinion[0]<<endl;
+	cout<<"Puntaje Consonantes: "<<scoreMinion[1]<<endl;
+	
+	if(scoreMinion[0]>scoreMinion[1]){
+		cout<<"Vocales ganan"<<endl;}
+	else if(scoreMinion[1]>scoreMinion[0]){
+		cout<<"Consonantes ganan"<<endl;}
+	else{
+		cout<<"Empate"<<endl;
+	}
+	
+		
+	return;
+
+
+
+}
+
+//Cipher
+
+void Cipher(){
+	
+}
+
+//int argc, char** argv
+int main(){
 	
 
-
-
-int main(int argc, char** argv){
-	
-
-
-	//Triplets1();
-	cout<<"Hora Militar: "<<TimeConversion1("01:41:15PM")<<endl;  
-  
-  return 0;
+	//int a[]={20,28,70};
+	//int b[]={50,60,50};
+	//Triplets1(a,b);
+	//cout<<"Hora Militar: "<<TimeConversion1("01:41:15PM")<<endl; 
+	//int lista[]= {2,2,1,3,2};
+  	//Subarray1(5,lista,4,2);
+  	//int scoreMinion[]={0,0};
+  	//Minion("POO",scoreMinion);
+  	//Cipher();
+  	return 0;
 }
 
