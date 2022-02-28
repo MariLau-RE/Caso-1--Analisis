@@ -268,39 +268,39 @@ int Pairs(int largo,int diferencia, int listadif[]){
 int main(){
 	
 
-	//int a[]={5,6,7};
-	//int b[]={3,6,10};
-	//Triplets1(a,b);
-	//Triplets2(a,b);
-	//int a1[]={17,28,30};
-	//int b1[]={99,16,8};
-	//Triplets1(a1,b1);
-	//Triplets2(a1,b1);
+	int a[]={5,6,7};
+	int b[]={3,6,10};
+	Triplets1(a,b);
+	Triplets2(a,b);
+	int a1[]={17,28,30};
+	int b1[]={99,16,8};
+	Triplets1(a1,b1);
+	Triplets2(a1,b1);
 	
-	//cout<<"\nHora Militar: "<<TimeConversion1("12:41:15AM")<<endl; 
-	//cout<<"\nHora Militar: "<<TimeConversion1("07:05:45PM")<<endl; 
-	//cout<<"\nHora Militar: "<<TimeConversion2("12:41:15AM")<<endl; 
-	//cout<<"\nHora Militar: "<<TimeConversion2("07:05:45PM")<<endl;
+	cout<<"\nHora Militar: "<<TimeConversion1("12:41:15AM")<<endl; 
+	cout<<"\nHora Militar: "<<TimeConversion1("07:05:45PM")<<endl; 
+	cout<<"\nHora Militar: "<<TimeConversion2("12:41:15AM")<<endl; 
+	cout<<"\nHora Militar: "<<TimeConversion2("07:05:45PM")<<endl;
 	
-	//int lista[]= {1,2,1,3,2};
-  	//Subarray1(5,lista,3,2);
-	//int lista2[]= {1,1,1,1,1,1};
-  	//Subarray1(6,lista2,3,2);
+	int lista[]= {1,2,1,3,2};
+  	Subarray1(5,lista,3,2);
+	int lista2[]= {1,1,1,1,1,1};
+  	Subarray1(6,lista2,3,2);
   	
-  	//int scoreMinion[]={0,0};
-  	//Minion("BANANA",scoreMinion);
-  	//int scoreMinion1[]={0,0};
-  	//Minion("POO",scoreMinion1);
+  	int scoreMinion[]={0,0};
+  	Minion("BANANA",scoreMinion);
+  	int scoreMinion1[]={0,0};
+  	Minion("POO",scoreMinion1);
   	
   	
-  	//Cipher("1110100110", 4);
-  	//Cipher("1110101001",4);
+  	Cipher("1110100110", 4);
+  	Cipher("1110101001",4);
 
   	
-  	//int listadif[]={1,5,3,4,2};
-  	//Pairs(5,3,listadif);
-  	//int listadif1[]={1,5,3,4,2};
-  	//Pairs(5,2,listadif1);
+  	int listadif[]={1,5,3,4,2};
+  	Pairs(5,3,listadif);
+  	int listadif1[]={1,5,3,4,2};
+  	Pairs(5,2,listadif1);
   	
   	return 0;
 }
